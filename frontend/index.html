@@ -1,8 +1,50 @@
-<html>
-    <head>
-        <title>Hello World</title>
-    </head>
-    <body>
-        <h2>HELLO WORLD! :)</h2>
-    </body>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Seed Page</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span class="h3">
+                            Taskd
+                        </span>
+                    </div>
+                    <div class="col-xs-3 col-xs-offset-6">
+                        <a href="" class="thumbnail"><img src="assets/img/blue-cobra-transparent.png" alt="Blue Cobras"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" ui-view>
+            </div>
+        </div>
+    </div>
+
+    <!--Vender Libs-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.3/chance.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+    <!--My Libs-->
+    <script src="scripts/config/init.js"></script>
+    <script src="scripts/config/routes.js"></script>
+    <script src="scripts/components/home/home-directive.js"></script>
+    <script src="scripts/components/home/home-controller.js"></script>
+    <script src="scripts/components/new-task/new-task-directive.js"></script>
+    <script src="scripts/components/new-task/new-task-controller.js"></script>
+    <script src="scripts/components/login/login-directive.js"></script>
+    <script src="scripts/components/login/login-controller.js"></script>
+</body>
+
 </html>
