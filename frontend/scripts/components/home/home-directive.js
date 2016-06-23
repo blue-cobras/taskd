@@ -7,5 +7,5 @@
 			},
 			controller: 'homeCtrl as ctrl',
 			templateUrl: 'scripts/components/home/home.html'
-		});
-})();
+		})
+})()

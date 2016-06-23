@@ -1,15 +1,15 @@
 (function () {
 	angular
 		.module('myApp')
-		.controller('homeCtrl', homeCtrl);
+		.controller('homeCtrl', homeCtrl)
 
 	function homeCtrl() {
 
 		// Vars
-		var vm = this;
+		var vm = this
 
 		// Functions
 
 	}
 
-})();
+})()

@@ -23,6 +23,7 @@
         ]
     },
     "globals": {
-        "require": false
+        "require": false,
+        "angular": false
     }
 }
