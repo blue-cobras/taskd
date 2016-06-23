@@ -25,9 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="panel-body">
-                <myhome></myhome>
-                <newtask></newtask>
+            <div class="panel-body" ui-view>
             </div>
         </div>
     </div>
@@ -37,12 +35,16 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
     <!--My Libs-->
     <script src="scripts/config/init.js"></script>
+    <script src="scripts/config/routes.js"></script>
     <script src="scripts/components/home/home-directive.js"></script>
     <script src="scripts/components/home/home-controller.js"></script>
     <script src="scripts/components/new-task/new-task-directive.js"></script>
     <script src="scripts/components/new-task/new-task-controller.js"></script>
+    <script src="scripts/components/login/login-directive.js"></script>
+    <script src="scripts/components/login/login-controller.js"></script>
 </body>
 
 </html>
