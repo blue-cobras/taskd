@@ -11,5 +11,10 @@
 				<button class="btn btn-success">Submit</button>
 			</div>
 		</form>
+		<div class="well">
+			<ol>
+				<li ng-repeat="task in ctrl.tasks track by $index">{{task.name}} ; {{task.due}} -- {{task.desc}} - <span ng-click="ctrl.removeTask($index)">X</span></li>
+			</ol>
+		</div>
 	</div>
 </div>

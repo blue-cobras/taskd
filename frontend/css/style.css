@@ -1,0 +1,11 @@
+body{
+	background-color: white;
+}
+
+.main{
+	height: 50%;
+}
+
+#main_menu li {
+	display: inline;
+}
