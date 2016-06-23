@@ -1,4 +1,4 @@
-const TestCtrl = require('../controllers/test');
+import * as TestCtrl from "../controllers/test";
 
 module.exports =  [
     {
@@ -14,7 +14,7 @@ module.exports =  [
         path:  '/test',
         handler: TestCtrl.post,
         config: {
-
+ 
         }
     }
 ]; 

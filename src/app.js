@@ -11,10 +11,10 @@ const app  = new Hapi.Server({
         }
     }
 });
+const Routes = require('./routes');
 app.connection({port: 3000});
 app.register(Inert, () => {});
 
-const Routes = require('./routes');
 for (var route in Routes) {
     app.route(Routes[route]);
 }
