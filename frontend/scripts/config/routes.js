@@ -6,7 +6,7 @@
 			$stateProvider
 				.state('login', {
 					url: '/login',
-					templateUrl: 'scripts/partials/login.html'
+					templateUrl: 'scripts/partials/splash.html'
 				})
 				.state('home', {
 					url: '/home',
