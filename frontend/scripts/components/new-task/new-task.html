@@ -8,13 +8,8 @@
 				<input class="form-control" ng-model="ctrl.newTask.name" placeholder="Task Name" type="text">
 				<input class="form-control" ng-model="ctrl.newTask.due" placeholder="Due" type="text">
 				<textarea rows="3" ng-model="ctrl.newTask.desc" placeholder="Task Description" class="form-control"></textarea>
-				<button class="btn btn-success">Submit</button>
+				<button class="btn btn-success" type="submit">Submit</button>
 			</div>
 		</form>
-		<div class="well">
-			<ol>
-				<li ng-repeat="task in ctrl.tasks track by $index">{{task.name}} ; {{task.due}} -- {{task.desc}} - <span ng-click="ctrl.removeTask($index)">X</span></li>
-			</ol>
-		</div>
 	</div>
 </div>

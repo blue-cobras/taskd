@@ -6,7 +6,7 @@
 	function homeCtrl() {
 
 		// Vars
-		var vm = this
+		let vm = this
 
 		// Functions
 

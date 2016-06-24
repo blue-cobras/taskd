@@ -6,7 +6,7 @@
 	function registerCtrl() {
 
 		// Vars
-		var vm = this
+		let vm = this
 
 		// Functions
 

@@ -3,23 +3,20 @@
 		.module('myApp')
 		.controller('newTaskCtrl', newTaskCtrl)
 
-	function newTaskCtrl() {
+	function newTaskCtrl(TaskService) {
 
 		// Vars
-		var vm = this
+		let vm = this
 		vm.createTask = createTask
-		vm.removeTask = removeTask
+		// vm.removeTask = removeTask
 		vm.newTask = {}
-		vm.tasks=[]
+		vm.tasks = []
 		// Functions
 		function createTask() {
-			// TODO POST to back-end
-			vm.tasks.push(vm.newTask)
+			// Send data to Task Service
+			TaskService.addToTaskList('me', vm.newTask)
 			// Reset model
 			vm.newTask = {}
-		}
-		function removeTask(i) {
-			vm.tasks.splice(i,1)
 		}
 	}
 

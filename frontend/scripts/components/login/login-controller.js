@@ -6,7 +6,7 @@
 	function loginCtrl() {
 
 		// Vars
-		var vm = this
+		let vm = this
 
 		// Functions
 
