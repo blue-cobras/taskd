@@ -1,5 +1,68 @@
 body {
-  margin: 1em;
   background-color: #34495e;
   font-family: 'Open Sans', sans-serif;
+  font-size: 2vw;
+  height: 100%; }
+
+.container-fluid-no-padding {
+  padding-left: 0px;
+  padding-right: 0px; }
+
+.menu {
+  background-color: #fff;
+  min-height: 100%;
+  height: auto !important;
+  margin-left: 0px; }
+
+.slogan-text {
+  font-size: 1vw;
+  color: #999; }
+
+.logo {
+  width: 1.5em;
+  height: 1.5em; }
+
+.fix-bottom-logo {
+  text-align: left !important;
+  padding-left: 3em;
+  padding-bottom: 0.75em; }
+
+.fix-bottom-slogan {
+  text-align: left !important;
+  padding-left: 1.5em; }
+
+.title {
+  color: #34495e;
+  font-weight: 700;
   font-size: 3vw; }
+
+.menu-option {
+  font-size: 2.25vw;
+  border-top: 1px solid #ddd;
+  margin-top: 0.5em; }
+
+.my-nav-text {
+  font-size: 1.5vw;
+  color: #eee; }
+
+.my-nav {
+  background-color: #576b80;
+  border-color: #576b80; }
+
+.nav-select {
+  width: 15em !important; }
+
+.panel-cobra {
+  background-color: #576b80;
+  color: #eee; }
+
+.open-tasks {
+  color: #eee; }
+  .open-tasks tr:nth-child(odd) {
+    background-color: #7c92a7; }
+  .open-tasks tr td {
+    border: none !important; }
+    .open-tasks tr td .completed {
+      color: #8ed89d; }
+    .open-tasks tr td .today {
+      font-weight: 700; }

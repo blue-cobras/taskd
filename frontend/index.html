@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Seed Page</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/site.css" />
 
@@ -11,23 +11,7 @@
 
 <body>
 
-    <div class="container-fluid">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <span class="h3">
-                            Taskd
-                        </span>
-                    </div>
-                    <div class="col-xs-3 col-xs-offset-6">
-                        <a href="" class="thumbnail"><img src="assets/img/blue-cobra-transparent.png" alt="Blue Cobras"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="panel-body" ui-view>
-            </div>
-        </div>
+    <div class="container-fluid container-fluid-no-padding" ui-view>
     </div>
 
     <!--Vender Libs-->
@@ -40,8 +24,8 @@
     <script src="scripts/config/init.js"></script>
     <script src="scripts/config/routes.js"></script>
     <script src="scripts/services/task-service.js"></script>
-    <script src="scripts/components/home/home-directive.js"></script>
-    <script src="scripts/components/home/home-controller.js"></script>
+    <script src="scripts/components/navbar/navbar-directive.js"></script>
+    <script src="scripts/components/navbar/navbar-controller.js"></script>
     <script src="scripts/components/new-task/new-task-directive.js"></script>
     <script src="scripts/components/new-task/new-task-controller.js"></script>
     <script src="scripts/components/task-list/task-list-directive.js"></script>

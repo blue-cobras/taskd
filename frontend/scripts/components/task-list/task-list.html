@@ -1,12 +1,16 @@
-<div class="panel panel-primary">
-	<div class="panel-heading">Task List</div>
-	<div class="panel-body">
+<div class="panel panel-cobra">
+	<div class="panel-heading">Open Tasks</div>
+	<div class="panel-body container-fluid-no-padding">
 		<p ng-hide="ctrl.taskList.length" class="text-danger">Add Something To Your List!</p>
-		<ul ng-show="ctrl.taskList">
-			<li ng-repeat="task in ctrl.taskList track by $index">
-				<strong>{{task.name}}:</strong> {{task.due}} - <button class="btn btn-xs btn-danger" ng-click="ctrl.removeTask($index)"><span class="glyphicon glyphicon-remove"></span></button>
-				<br> {{task.desc}}
-			</li>
-		</ul>
+		<table class="table open-tasks" ng-show="ctrl.taskList">
+			<tr ng-repeat="task in ctrl.taskList track by $index">
+				<td class="pull-left">
+					{{task.name}}
+				</td>
+				<td class="pull-right">
+					{{task.due}}
+				</td>
+			</tr>
+		</table>
 	</div>
 </div>

@@ -1,7 +1,92 @@
+$primary-color: #576b80;
+$background-color: #34495e;
+$completed-color: #8ed89d;
+$highlight-color: #7c92a7;
 body {
-	margin: 1em;
-	background-color: #34495e;
+	background-color: $background-color;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 3vw;
+	font-size: 2vw;
+	height: 100%;
+}
 
+.container-fluid-no-padding {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.menu {
+	background-color: #fff;
+	min-height: 100%;
+	height: auto !important;
+	margin-left: 0px;
+}
+
+.slogan-text {
+	font-size: 1vw;
+	color: #999;
+}
+
+.logo {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.fix-bottom-logo {
+	text-align: left !important;
+	padding-left: 3em;
+	padding-bottom: 0.75em;
+}
+
+.fix-bottom-slogan {
+	text-align: left !important;
+	padding-left: 1.5em;
+}
+
+.title {
+	color: $background-color;
+	font-weight: 700;
+	font-size: 3vw;
+}
+
+.menu-option {
+	font-size: 2.25vw;
+	border-top: 1px solid #ddd;
+	margin-top: 0.5em;
+}
+
+.my-nav-text {
+	font-size: 1.5vw;
+	color: #eee;
+}
+
+.my-nav {
+	background-color: $primary-color;
+	border-color: $primary-color;
+}
+
+.nav-select {
+	width: 15em !important;
+}
+
+.panel-cobra {
+	background-color: $primary-color;
+	color: #eee;
+}
+
+.open-tasks {
+	color: #eee;
+	tr {
+		&:nth-child(odd) {
+			background-color: $highlight-color;
+		}
+		td {
+			.completed {
+				color: $completed-color;
+			}
+			.today {
+				font-weight: 700;
+			}
+			border: none !important;
+		}
+	}
 }
