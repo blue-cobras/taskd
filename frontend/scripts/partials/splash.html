@@ -1,10 +1,16 @@
 <div class="container-padding">
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<a ui-sref="splash.login">Login</a>
-			<a ui-sref="splash.register">Register</a>
+	<a class="col-xs-6 no-padding splash-tab" ui-sref="splash.login">
+			Login
+	</a>
+	<a class="col-xs-6 no-padding splash-tab" ui-sref="splash.register">
+		Register
+		</a>
+	<div class="clearfix"></div>
+	<div class="splash-content">
+		<div class="title-splash text-center">
+			TASKD
 		</div>
-		<div class="panel-body" ui-view>
+		<div class="" ui-view>
 		</div>
 	</div>
 </div>

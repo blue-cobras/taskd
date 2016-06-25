@@ -13,6 +13,34 @@ body {
 .container-padding {
   padding: 4em 6em; }
 
+.splash-tab {
+  text-align: center;
+  font-size: 2.75vw;
+  border: 1px solid #7c92a7;
+  border-top-left-radius: 0.25em;
+  border-top-right-radius: 0.25em;
+  padding: 0.5em;
+  background-color: #576b80;
+  color: #eee; }
+  .splash-tab:hover {
+    text-decoration: none;
+    color: #7c92a7; }
+  .splash-tab:focus {
+    color: #34495e;
+    text-decoration: none;
+    background-color: #fff; }
+  .splash-tab + .splash-tab {
+    border-left: 0; }
+
+.splash-content {
+  padding: 0.5em;
+  background-color: #fff;
+  border-radius: 0.25em;
+  border-left: 1px solid #7c92a7;
+  border-right: 1px solid #7c92a7;
+  border-top-left-radius: 0em;
+  border-top-right-radius: 0em; }
+
 .menu {
   background-color: #fff;
   min-height: 100%;
@@ -49,10 +77,15 @@ body {
   text-align: left !important;
   padding-left: 1.5em; }
 
-.title {
+.title, .title-splash {
   color: #34495e;
   font-weight: 700;
   font-size: 3vw; }
+
+.title-splash {
+  font-size: 5vw;
+  padding-top: 0.5em;
+  padding-bottom: 0px; }
 
 .my-nav {
   background-color: #576b80;
