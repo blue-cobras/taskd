@@ -1,2 +1,17 @@
-<h1>OOPS FORGOT A PASSWORD</h1>
-<a ui-sref="splash.login">RETURN TO LOGIN</a>
+<div class="container-fluid text-center">
+	<form ng-submit="ctrl.reset()">
+		<div class="form-group">
+			<p>
+				To request a password reset, enter your email address and click the Request Reset button.
+			</p>
+			<p>
+				A password reset link will be sent to the email.
+			</p>
+			<p class="input-group">
+				<input class="form-control" placeholder="Email" type="email">
+				<span class="input-group-addon glyphicon glyphicon-envelope"></span>
+			</p>
+			<button class="btn btn-primary btn-block">Request Reset</button>
+		</div>
+	</form>
+</div>

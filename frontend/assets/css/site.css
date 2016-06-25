@@ -10,8 +10,8 @@ body {
 .no-margin {
   margin: 0px; }
 
-.container-padding {
-  padding: 4em 6em; }
+.splash-padding {
+  padding-top: 3em; }
 
 .splash-tab {
   text-align: center;

@@ -1,3 +1,16 @@
-<h1>LOGIN HERE</h1>
-<a ui-sref="home.tasks">Click to login</a>
-<a ui-sref="splash.forgot">Forgot Password?</a>
+<div class="container-fluid text-center">
+	<form ng-submit="ctrl.login()">
+		<div class="form-group">
+			<p class="input-group">
+				<input class="form-control" placeholder="Email" type="text">
+				<span class="input-group-addon glyphicon glyphicon-envelope"></span>
+			</p>
+			<p class="input-group">
+				<input class="form-control" placeholder="Password" type="password">
+				<span class="input-group-addon glyphicon glyphicon-lock"></span>
+			</p>
+			<button class="btn btn-primary btn-block">Sign In</button>
+		</div>
+	</form>
+	<a ui-sref="splash.forgot">Forgot Password?</a>
+</div>

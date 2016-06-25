@@ -1,1 +1,19 @@
-<h1>REGISTER HERE</h1>
+<div class="container-fluid text-center">
+	<form ng-submit="ctrl.register()">
+		<div class="form-group">
+			<p class="input-group">
+				<input class="form-control" placeholder="Email" type="text">
+				<span class="input-group-addon glyphicon glyphicon-envelope"></span>
+			</p>
+			<p class="input-group">
+				<input class="form-control" placeholder="Password" type="password">
+				<span class="input-group-addon glyphicon glyphicon-lock"></span>
+			</p>
+			<p class="input-group">
+				<input class="form-control" placeholder="Confirm Password" type="password">
+				<span class="input-group-addon glyphicon glyphicon-lock"></span>
+			</p>
+			<button class="btn btn-primary btn-block">Register</button>
+		</div>
+	</form>
+</div>
