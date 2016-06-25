@@ -4,16 +4,24 @@
 
 
 			$stateProvider
-				.state('login', {
-					url: '/login',
+				.state('splash', {
+					url: '/splash',
 					templateUrl: 'scripts/partials/splash.html'
+				})
+				.state('splash.login', {
+					url: '/login',
+					template: '<login></login>'
+				})
+				.state('splash.register', {
+					url: '/register',
+					template: '<register></register>'
 				})
 				.state('home', {
 					url: '/home',
 					templateUrl: 'scripts/partials/home.html'
 				})
 
-			$urlRouterProvider.otherwise('/login')
+			$urlRouterProvider.otherwise('/splash/login')
 
 		})
 })()

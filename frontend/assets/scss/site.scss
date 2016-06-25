@@ -2,6 +2,7 @@ $primary-color: #576b80;
 $background-color: #34495e;
 $completed-color: #8ed89d;
 $highlight-color: #7c92a7;
+$primary-font-color: #eee;
 body {
 	background-color: $background-color;
 	font-family: 'Open Sans', sans-serif;
@@ -15,6 +16,10 @@ body {
 
 .no-margin {
 	margin: 0px;
+}
+
+.container-padding {
+	padding: 4em 6em;
 }
 
 .menu {
@@ -77,7 +82,7 @@ body {
 	}
 	.my-nav-text {
 		font-size: 1.5vw;
-		color: #eee;
+		color: $primary-font-color;
 		border-left: 1px solid $background-color;
 	}
 }
@@ -88,16 +93,16 @@ body {
 
 .panel-cobra {
 	background-color: $primary-color;
-	color: #eee;
+	color: $primary-font-color;
 }
 
 .btn-my-primary {
 	background-color: $primary-color;
-	color: #eee;
+	color: $primary-font-color;
 }
 
 .open-tasks {
-	color: #eee;
+	color: $primary-font-color;
 	tr {
 		&:nth-child(odd) {
 			background-color: $highlight-color;

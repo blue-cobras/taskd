@@ -10,6 +10,9 @@ body {
 .no-margin {
   margin: 0px; }
 
+.container-padding {
+  padding: 4em 6em; }
+
 .menu {
   background-color: #fff;
   min-height: 100%;

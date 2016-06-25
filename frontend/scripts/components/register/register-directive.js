@@ -1,7 +1,7 @@
 (function () {
 	angular
 		.module('myApp')
-		.component('newtask', {
+		.component('register', {
 			bindings: {
 				count: '='
 			},

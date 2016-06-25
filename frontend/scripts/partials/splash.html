@@ -1,11 +1,10 @@
-<div class="panel panel-primary">
-	<div class="panel-body">
-		<ul class="nav nav-tabs">
-			<li role="presentation" class="active"><a ui-sref="login">Login</a></li>
-			<li role="presentation"><a ui-sref="home">Home(will be Register)</a></li>
-		</ul>
-	</div>
-	<div class="panel-body">
-		<login></login>
+<div class="container-padding">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<a ui-sref="splash.login">Login</a>
+			<a ui-sref="splash.register">Register</a>
+		</div>
+		<div class="panel-body" ui-view>
+		</div>
 	</div>
 </div>
