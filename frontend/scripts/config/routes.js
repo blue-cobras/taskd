@@ -16,9 +16,21 @@
 					url: '/register',
 					template: '<register></register>'
 				})
+				.state('splash.forgot', {
+					url: '/forgot',
+					template: '<forgot></forgot>'
+				})
 				.state('home', {
 					url: '/home',
 					templateUrl: 'scripts/partials/home.html'
+				})
+				.state('home.tasks', {
+					url: '/tasks',
+					templateUrl: 'scripts/partials/tasks.html'
+				})
+				.state('home.settings', {
+					url: 'settings',
+					templateUrl: 'scripts/partials/settings.html'
 				})
 
 			$urlRouterProvider.otherwise('/splash/login')

@@ -2,9 +2,9 @@
 <div class="menu col-xs-2 text-center">
 	<div class="title">TASKD</div>
 	<div>
-		<a ui-sref="" class="menu-option">TASKS</a>
-		<a ui-sref="" class="menu-option">SETTINGS</a>
-		<a ui-sref="" class="menu-option">LOGOUT</a>
+		<a ui-sref="home.tasks" class="menu-option">TASKS</a>
+		<a ui-sref="home.settings" class="menu-option">SETTINGS</a>
+		<a ui-sref="splash.login" class="menu-option">LOGOUT</a>
 	</div>
 	<div class="navbar-fixed-bottom fix-bottom-logo">
 		<img class="logo" src="assets/img/blue-cobra-transparent.png" alt="Blue Cobras">
@@ -13,15 +13,6 @@
 		<div class="slogan-text">A Blue Cobra Project</div>
 	</div>
 </div>
-<!--NavBar + Content Container-->
-<div class="col-xs-10 no-padding">
-	<!--NavBar-->
-	<mynav></mynav>
-	<!--Content-->
-	<div class="col-xs-6 no-padding">
-		<tasklist></tasklist>
-	</div>
-	<div class="col-xs-6 no-padding">
-		<newtask></newtask>
-	</div>
+<!-- Content Container-->
+<div class="col-xs-10 no-padding" ui-view>
 </div>
