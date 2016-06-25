@@ -4,15 +4,30 @@ body {
   font-size: 2vw;
   height: 100%; }
 
-.container-fluid-no-padding {
-  padding-left: 0px;
-  padding-right: 0px; }
+.no-padding {
+  padding: 0px; }
+
+.no-margin {
+  margin: 0px; }
 
 .menu {
   background-color: #fff;
   min-height: 100%;
   height: auto !important;
   margin-left: 0px; }
+  .menu .menu-option {
+    font-size: 2.25vw;
+    border-top: 1px solid #ddd;
+    margin-top: 0.5em;
+    color: #7c92a7;
+    display: block; }
+    .menu .menu-option:hover {
+      color: #34495e;
+      text-decoration: none; }
+    .menu .menu-option:link {
+      color: #7c92a7; }
+    .menu .menu-option:visited {
+      color: #7c92a7; }
 
 .slogan-text {
   font-size: 1vw;
@@ -36,23 +51,25 @@ body {
   font-weight: 700;
   font-size: 3vw; }
 
-.menu-option {
-  font-size: 2.25vw;
-  border-top: 1px solid #ddd;
-  margin-top: 0.5em; }
-
-.my-nav-text {
-  font-size: 1.5vw;
-  color: #eee; }
-
 .my-nav {
   background-color: #576b80;
-  border-color: #576b80; }
+  border-color: #576b80;
+  border: 1px solid #34495e; }
+  .my-nav .nav-border-right {
+    border-right: 1px solid #34495e; }
+  .my-nav .my-nav-text {
+    font-size: 1.5vw;
+    color: #eee;
+    border-left: 1px solid #34495e; }
 
 .nav-select {
   width: 15em !important; }
 
 .panel-cobra {
+  background-color: #576b80;
+  color: #eee; }
+
+.btn-my-primary {
   background-color: #576b80;
   color: #eee; }
 

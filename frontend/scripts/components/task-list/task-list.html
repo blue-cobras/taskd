@@ -1,6 +1,6 @@
 <div class="panel panel-cobra">
 	<div class="panel-heading">Open Tasks</div>
-	<div class="panel-body container-fluid-no-padding">
+	<div class="panel-body no-padding">
 		<p ng-hide="ctrl.taskList.length" class="text-danger">Add Something To Your List!</p>
 		<table class="table open-tasks" ng-show="ctrl.taskList">
 			<tr ng-repeat="task in ctrl.taskList track by $index">
