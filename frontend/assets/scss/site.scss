@@ -67,11 +67,12 @@ body {
 		color: $highlight-color;
 		display: block;
 		&:hover {
-			color: $background-color;
+			color: $background-color !important;
 			text-decoration: none;
 		}
 		&:link {
 			color: $highlight-color;
+			text-decoration: none;
 		}
 		&:visited {
 			color: $highlight-color;
@@ -117,6 +118,11 @@ body {
 	background-color: $primary-color;
 	border-color: $primary-color;
 	border: 1px solid $background-color;
+	a {
+		&:hover {
+			background-color: $background-color !important;
+		}
+	}
 	.nav-border-right {
 		border-right: 1px solid $background-color;
 	}
@@ -125,10 +131,9 @@ body {
 		color: $primary-font-color;
 		border-left: 1px solid $background-color;
 	}
-}
-
-.nav-select {
-	width: 15em !important;
+	.nav-select {
+		width: 15em !important;
+	}
 }
 
 .panel-cobra {

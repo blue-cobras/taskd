@@ -53,10 +53,11 @@ body {
     color: #7c92a7;
     display: block; }
     .menu .menu-option:hover {
-      color: #34495e;
+      color: #34495e !important;
       text-decoration: none; }
     .menu .menu-option:link {
-      color: #7c92a7; }
+      color: #7c92a7;
+      text-decoration: none; }
     .menu .menu-option:visited {
       color: #7c92a7; }
 
@@ -91,15 +92,16 @@ body {
   background-color: #576b80;
   border-color: #576b80;
   border: 1px solid #34495e; }
+  .my-nav a:hover {
+    background-color: #34495e !important; }
   .my-nav .nav-border-right {
     border-right: 1px solid #34495e; }
   .my-nav .my-nav-text {
     font-size: 1.5vw;
     color: #eee;
     border-left: 1px solid #34495e; }
-
-.nav-select {
-  width: 15em !important; }
+  .my-nav .nav-select {
+    width: 15em !important; }
 
 .panel-cobra {
   background-color: #576b80;
