@@ -7,10 +7,12 @@
 
 		// Vars
 		let vm = this
+		let taskList = [{ desc: 'stuff', due: '01/01/01', name: 'stuff' }]
+
+		// Exports
 		vm.getTaskList = getTaskList
 		vm.addToTaskList = addToTaskList
 		vm.removeTaskFromList = removeTaskFromList
-		let taskList = [{ desc: 'stuff', due: '01/01/01', name: 'stuff' }]
 		vm.taskList = getTaskList()
 
 		// Functions

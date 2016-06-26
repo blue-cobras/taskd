@@ -7,6 +7,8 @@
 
 		// Vars
 		let vm = this
+
+		// Exports
 		vm.reset = reset
 
 		// Functions

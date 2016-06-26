@@ -7,6 +7,8 @@
 
 		// Vars
 		let vm = this
+
+		// Exports
 		vm.login = login
 
 		// Functions

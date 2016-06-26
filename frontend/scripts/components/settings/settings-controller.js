@@ -1,9 +1,9 @@
 (function () {
 	angular
 		.module('myApp')
-		.controller('navbarCtrl', navbarCtrl)
+		.controller('settingsCtrl', settingsCtrl)
 
-	function navbarCtrl() {
+	function settingsCtrl() {
 
 		// Vars
 		let vm = this

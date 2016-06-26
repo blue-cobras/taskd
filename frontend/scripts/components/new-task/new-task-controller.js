@@ -8,11 +8,10 @@
 		// Vars
 		let vm = this
 		vm.createTask = createTask
-		// vm.removeTask = removeTask
 		vm.newTask = {}
 		vm.tasks = []
 
-		//START DATEPICKER
+		//START DATEPICKER VENDOR CODE
 		// Vars
 		let tomorrow = new Date()
 		let afterTomorrow = new Date()

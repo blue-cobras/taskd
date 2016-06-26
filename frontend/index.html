@@ -2,20 +2,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Seed Page</title>
+    <title>Taskd</title>
+    <!--Vendor Styles-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css" />
+    <!--Custom Styles-->
     <link rel="stylesheet" href="assets/css/site.css" />
 
 </head>
 
 <body>
-
+    <!--All actual site HTML is contained in scripts/partials or scripts/components/*-->
     <div class="container-fluid no-padding" ui-view>
     </div>
 
-    <!--Vender Libs-->
+    <!--Vender Scripts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.3/chance.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -23,9 +25,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
-    <!--My Libs-->
+    <!--Custom Scripts-->
     <script src="scripts/config/init.js"></script>
     <script src="scripts/config/routes.js"></script>
+    <script src="scripts/services/auth-service.js"></script>
     <script src="scripts/services/task-service.js"></script>
     <script src="scripts/components/navbar/navbar-directive.js"></script>
     <script src="scripts/components/navbar/navbar-controller.js"></script>
@@ -39,6 +42,8 @@
     <script src="scripts/components/register/register-controller.js"></script>
     <script src="scripts/components/forgot/forgot-directive.js"></script>
     <script src="scripts/components/forgot/forgot-controller.js"></script>
+    <script src="scripts/components/settings/settings-directive.js"></script>
+    <script src="scripts/components/settings/settings-controller.js"></script>
 </body>
 
 </html>

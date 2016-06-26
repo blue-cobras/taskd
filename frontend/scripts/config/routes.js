@@ -29,8 +29,8 @@
 					templateUrl: 'scripts/partials/tasks.html'
 				})
 				.state('home.settings', {
-					url: 'settings',
-					templateUrl: 'scripts/partials/settings.html'
+					url: '/settings',
+					template: '<settings></settings>'
 				})
 
 			$urlRouterProvider.otherwise('/splash/login')

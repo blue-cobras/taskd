@@ -119,3 +119,9 @@ body {
       color: #8ed89d; }
     .open-tasks tr td .today {
       font-weight: 700; }
+
+.settings-main {
+  padding: 2em;
+  height: 100%;
+  color: #eee;
+  background-color: #576b80; }

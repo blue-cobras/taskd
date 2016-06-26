@@ -1,9 +1,9 @@
 (function () {
 	angular
 		.module('myApp')
-		.controller('navbarCtrl', navbarCtrl)
+		.service('AuthService', AuthService)
 
-	function navbarCtrl() {
+	function AuthService() {
 
 		// Vars
 		let vm = this

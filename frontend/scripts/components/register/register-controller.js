@@ -7,6 +7,8 @@
 
 		// Vars
 		let vm = this
+
+		// Exports
 		vm.register = register
 
 		// Functions

@@ -8,6 +8,8 @@
 		// Vars
 		let vm = this
 		let user = 'me'
+
+		// Exports
 		vm.taskList = TaskService.taskList
 		vm.removeTask = TaskService.removeTaskFromList
 
