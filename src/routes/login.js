@@ -4,7 +4,7 @@ import * as LoginValidation from "../validate/login";
 module.exports = [
   {
     method: 'POST',
-    path: '/login',
+    path: '/api/login',
     handler: LoginCtrl.login,
     config: {
       auth: false,
@@ -13,7 +13,7 @@ module.exports = [
     }
   }, {
     method: 'POST',
-    path: '/refreshToken',
+    path: '/api/refreshToken',
     handler: LoginCtrl.refreshToken,
     config: {
       auth: false,

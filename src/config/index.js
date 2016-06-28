@@ -1,7 +1,3 @@
-import * as path from 'path';
-import * as fs from 'fs';
-import * as _ from 'lodash';
-
 module.exports = {
     API: {
         JWTSecret: '3E5_^7Z%rF5$%c3jxpQ#uA#O0*k5ltB*zK#yrYFeIScFhyHbtW6h&woQM4j49cVU',

@@ -3,7 +3,7 @@ import * as TestCtrl from "../controllers/test";
 module.exports =  [
     {
         method: 'GET',
-        path:  '/test',
+        path:  '/api/test',
         handler: TestCtrl.get,
         config: { 
             auth:false
@@ -11,7 +11,7 @@ module.exports =  [
     },
     {
         method: 'POST',
-        path:  '/test',
+        path:  '/api/test',
         handler: TestCtrl.post,
         config: {
  
