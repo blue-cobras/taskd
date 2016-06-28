@@ -38,3 +38,6 @@ jspm_packages
 
 # dist folder
 dist
+
+# ignore scss build
+frontend/assets/css/site.css
