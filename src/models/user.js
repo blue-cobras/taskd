@@ -6,7 +6,7 @@ const util = ('../util');
 const boom = require('boom');
 
 const UserSchema = new Schema({
-    role: {
+    scope: {
         type: String,
         required: true
     },
@@ -34,7 +34,7 @@ UserSchema.statics.validateLogin = function validateLogin(username, plainPasswor
         })
 };
 
-UserSchema.statics.saveNewUser = function saveNewUser(username, plainPassword, role){
+UserSchema.statics.saveNewUser = function saveNewUser(username, plainPassword, scope){
     this
         .find({username: username})
         .then(docs => {
@@ -44,7 +44,7 @@ UserSchema.statics.saveNewUser = function saveNewUser(username, plainPassword, r
                     if (err) { return reject(err); }
                     var newUser = new this();
                     newUser.username = username;
-                    newUser.role = role;
+                    newUser.scope = scope;
                     neUSer.passwordHash = hash;
                     resolve(newUser)
                 })
@@ -68,9 +68,9 @@ UserSchema.path('username').validate(((value) => {
     return !util.nullOrEmpty(value)
 }),'username cannont be blank');
 
-UserSchema.path('role').validate(((value) => {
+UserSchema.path('scope').validate(((value) => {
     return !util.nullOrEmpty(value)
-}),'role cannont be blank');
+}),'scope cannont be blank');
 
 UserSchema.path('passwordHash').validate(((value) => {
     return !util.nullOrEmpty(value)

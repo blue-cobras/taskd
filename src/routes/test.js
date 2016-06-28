@@ -6,7 +6,7 @@ module.exports =  [
         path:  '/test',
         handler: TestCtrl.get,
         config: { 
-
+            auth:false
         }
     },
     {

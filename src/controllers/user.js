@@ -1,7 +1,7 @@
-const boom = require('boom');
-const UserModel = require('../models/user');
+import * as boom from 'boom';
+import * as UserModel from '../models/user';
 
-export const login = function(req,res) {
+export const createNewUser = (req,res) => {
     UserModel
         .saveNewUser(req.payload.username, req.payload.password, 'user')
         .then(user => {
@@ -11,7 +11,7 @@ export const login = function(req,res) {
         })
 };
 
-export const deleteUser = function(req,res){
+export const deleteUser = (req,res) => {
     UserModel
         .deleteUser(req.payload.username)
         .then(result => {
