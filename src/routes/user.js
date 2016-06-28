@@ -4,7 +4,7 @@ import * as UserValidation from "../validate/user";
 module.exports =  [
     {
         method: 'POST',
-        path:  '/user/create',
+        path:  '/api/user/create',
         handler: UserCtrl.createNewUser,
         config: { 
             auth:{
@@ -17,7 +17,7 @@ module.exports =  [
     },
     {
         method: 'DELETE',
-        path:  '/user/delete',
+        path:  '/api/user/delete',
         handler: UserCtrl.deleteUser,
         config: {
             auth:{

@@ -1,5 +1,5 @@
-import * as boom from 'boom';
-import * as UserModel from '../models/user';
+import boom from 'boom';
+import UserModel from '../models/user';
 
 export const createNewUser = (req,res) => {
     UserModel

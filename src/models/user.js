@@ -1,11 +1,10 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const bcrypt = require('bcrypt');
-const Promise = require('bluebird');
-const util = ('../util');
-const boom = require('boom');
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
+import Promise from 'bluebird';
+import boom from 'boom'
+import * as util from '../util';
 
-const UserSchema = new Schema({
+const UserSchema = new mongoose.Schema({
     scope: {
         type: String,
         required: true
@@ -20,45 +19,59 @@ const UserSchema = new Schema({
     }
 });
 
-UserSchema.statics.validateLogin = function validateLogin(username, plainPassword){
-    this
-        .find({username: username})
-        .then(docs => {
-            if(docs.length !== 1){return null}
-            return new Promise((resolve,reject) => {
-                bcrypt.compare(plainPassword, docs[0].passwordHash,(err,result) =>{
-                    if (err) { return reject(err); }
-                    return result ? resolve(docs[0].toJSON()) : reject(null);
-                })
-            })
-        })
+UserSchema.statics.validateLogin = function(username, plainPassword) {
+  return this.find({
+    username: username
+  }).then(function(docs) {
+    if (docs.length !== 1) {
+      return null;
+    }
+    return new Promise(function(resolve, reject) {
+      return bcrypt.compare(plainPassword, docs[0].passwordHash, function(err, res) {
+        if (err) {
+          reject(err);
+        }
+        if (res) {
+          return resolve(docs[0].toJSON());
+        } else {
+          return resolve(null);
+        }
+      });
+    });
+  });
 };
 
-UserSchema.statics.saveNewUser = function saveNewUser(username, plainPassword, scope){
-    this
-        .find({username: username})
-        .then(docs => {
-            if(docs.length > 0){throw boom.badRequest('Username already exists')}
-            return new Promise((resolve,reject) => {
-                bcrypt.hash(plainPassword,10,(err,hash) => {
-                    if (err) { return reject(err); }
-                    var newUser = new this();
-                    newUser.username = username;
-                    newUser.scope = scope;
-                    neUSer.passwordHash = hash;
-                    resolve(newUser)
-                })
-            })
-        })
-        .then(newUser => {
-            newUser.save().then(() => {
-                return newUser;
-            })
-        })
+UserSchema.statics.saveNewUser = function(username, plainPassword, scope) {
+  var self;
+  self = this;
+  return self.find({
+    username: username
+  }).then(function(docs) {
+    if (docs.length > 0) {
+      throw boom.badRequest('Username already exists');
+    }
+    return new Promise(function(resolve, reject) {
+      return bcrypt.hash(plainPassword, 10, function(err, hash) {
+        var newUser;
+        if (err) {
+          reject(err);
+        }
+        newUser = new self();
+        newUser.username = username;
+        newUser.scope = scope;
+        newUser.passwordHash = hash;
+        return resolve(newUser);
+      });
+    });
+  }).then(function(newUser) {
+    return newUser.save().then(function() {
+      return newUser;
+    });
+  });
 };
 
-UserSchema.statics.deleteUser = function deleteUser(username){
-    this.findOneAndRemove({username: username}).exec().then(record => {
+UserSchema.statics.deleteUser = function(username){
+    return this.findOneAndRemove({username: username}).exec().then(record => {
         if(record === null){throw boom.badRequest('Username does not exist')}
         return true;
     })
