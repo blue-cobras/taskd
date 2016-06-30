@@ -15,6 +15,9 @@
 							</button>
 						</span>
 					</p>
+					<!--chad's image-->
+					<img id="image_check">
+					<!--end image-->
 				</div>
 				<textarea rows="6" ng-model="ctrl.newTask.desc" placeholder="Task Description" class="form-control"></textarea>
 			</div>
@@ -27,3 +30,14 @@
 	</form>
 </div>
 </div>
+
+<script  type="text/javascript">
+function ShowImage( ImgElement, NewSrc ) {
+	ImgElement.src=NewSrc;
+}
+</script>
+<!--onmouseover(this.src='newsrc.jpg')
+onmouseout(this.src='oldsrc.jpg')-->
+
+
+<!--	<!--src="https://dl.dropboxusercontent.com/u/3367612/images/checkbox.png" height="60px" style="padding-left:20px;" onmouseover(this.src="https://dl.dropboxusercontent.com/u/3367612/images/checkbox_green.png") onmouseout(this.src="https://dl.dropboxusercontent.com/u/3367612/images/checkbox.png.src")>-->
