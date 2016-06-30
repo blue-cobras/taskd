@@ -30,5 +30,5 @@ $GLOBALS['TemplatePath'] = APP_TEMPLATE_PATH;
 
 if(!isset($GLOBALS['APPDB'])) {
     $GLOBALS['APPDB'] = new Database();
-    $GLOBALS['APPDB']->connect();
+    $GLOBALS['APPDB']->Connect();
 }
