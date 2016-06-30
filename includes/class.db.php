@@ -148,7 +148,7 @@ class Database
 	*
 	* @return False|Resource Returns the resource if the connection is successful. If anything is missing or incorrect, this will return false.
     */
-    function Connect()
+    public function Connect()
     {
         $hostname = GetConfig('DB_HOST');
         $username = GetConfig('DB_USER');;
@@ -209,7 +209,7 @@ class Database
     *
     * @return Boolean If the resource passed in is not valid, this will return false. Otherwise it returns the status from pg_close.
     */
-    function Disconnect($resource=null)
+    public function Disconnect($resource=null)
     {
             if ($resource === null) {
                     $this->SetError('Resource is a null object');
@@ -236,7 +236,7 @@ class Database
     *
     * @return Mixed Returns false if the query is empty or if there is no result. Otherwise returns the result of the query.
     */
-    function Query($query='')
+    public function Query($query='')
     {
         // if we're retrying a query, we have to kill the old connection and grab it again.
         // if we don't, we get a cached connection which won't work.
@@ -306,7 +306,7 @@ class Database
     *
     * @return Mixed Returns false if there is no sequence name or if it can't fetch the next id. Otherwise returns the next id
     */
-    function NextId($sequencename=false, $idcolumn='id')
+    public function NextId($sequencename=false, $idcolumn='id')
     {
             if (!$sequencename) {
                     return false;
@@ -328,7 +328,7 @@ class Database
     *
     * @return String The string to add to the end of the sql statement
     */
-    function AddLimit($offset=0, $numtofetch=0)
+    public function AddLimit($offset=0, $numtofetch=0)
     {
         $offset = intval($offset);
         $numtofetch = intval($numtofetch);
@@ -355,7 +355,7 @@ class Database
     * @return Int Number of rows from the result
     * Note: Select COUNT(*) is faster!
     */
-    function CountResult($resource=null)
+    public function CountResult($resource=null)
     {
             if ($resource === null) {
                     $this->SetError('Resource is a null object');
@@ -376,7 +376,7 @@ class Database
     *
     * @return Mixed $var with quotes applied to it appropriately
     */
-    function Quote($var='')
+    public function Quote($var='')
     {
             if (is_string($var) || is_numeric($var) || is_null($var)) {
                     return @mysqli_real_escape_string($this->connection,$var);
@@ -397,10 +397,114 @@ class Database
     *
     * @return Int Returns mysqli_insert_id from the database.
     */
-    function LastId($seq='')
+    public function LastId($seq='')
     {
             return mysqli_insert_id($this->connection);
     }
 
+    /**
+    * FetchOne
+    * Fetches one item from a result and returns it.
+    *
+    * @param String $result Result to fetch the item from.
+    * @param String $item The item to look for and return.
+    *
+    * @see Fetch
+    *
+    * @return Mixed Returns false if there is no result or item, or if the item doesn't exist in the result. Otherwise returns the item's value.
+    */
+    public function FetchOne($result=null, $item=null)
+    {
+            if ($result === null) {
+                    return false;
+            }
+            if (!is_resource($result)) {
+                    $result = $this->Query($result);
+            }
+            $row = $this->Fetch($result);
+            if (!$row) {
+                    return false;
+            }
+            if ($item === null) {
+                    $item = key($row);
+            }
+            if (!isset($row[$item])) {
+                    return false;
+            }
+            return $row[$item];
+    }
     
+    /**
+    * SetError
+    *
+    * Stores the error in the _error var for retrieval. This function will also call the error callback if there is one specified.
+    *
+    * @param String $error The error you wish to store for retrieval.
+    * @param String $errorlevel The error level you wish to store.
+    * @param String $query (Optional) The query that was executed that caused the error if there is one.
+    *
+    * @return Void Doesn't return anything, only sets the values and leaves it at that.
+    */
+    function SetError($error='', $errorlevel=E_USER_ERROR, $query='')
+    {
+            $this->_Error = $error;
+            $this->_ErrorLevel = $errorlevel;
+
+            $callback_valid = false;
+            if (is_string($this->ErrorCallback)) {
+                    $callback_valid = function_exists($this->ErrorCallback);
+            } elseif (is_array($this->ErrorCallback)) {
+                    $callback_valid = method_exists($this->ErrorCallback[0], $this->ErrorCallback[1]);
+            }
+            if ($this->ErrorCallback !== null && $callback_valid && !$this->_InErrorCallback) {
+                    $this->_InErrorCallback = true;
+                    call_user_func($this->ErrorCallback, $error, $query);
+                    $this->_InErrorCallback = false;
+            }
+    }
+
+    /**
+    * GetError
+    *
+    * This simply returns the $_Error var and it's error level.
+    *
+    * @see SetError
+    *
+    * @return Array Returns the error and it's error level.
+    */
+    function GetError()
+    {
+            return array($this->_Error, $this->_ErrorLevel);
+    }
+
+    /**
+    * Error
+    *
+    * This returns just the error message from the database.
+    *
+    * @see SetError
+    * @see _Error
+    *
+    * @return String Returns just the error message from SetError.
+    */
+    function Error()
+    {
+            return $this->_Error;
+    }
+
+    /**
+    * GetErrorMsg
+    *
+    * This simply returns the $_Error var
+    *
+    * @access public
+    *
+    * @see SetError
+    *
+    * @return String Returns the error
+    */
+    function GetErrorMsg()
+    {
+            return $this->_Error;
+    }
 }

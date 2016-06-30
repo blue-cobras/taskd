@@ -29,5 +29,6 @@ define('APP_TEMPLATE_PATH', getConfig('APP_LOCATION') . '/templates/');
 $GLOBALS['TemplatePath'] = APP_TEMPLATE_PATH;
 
 if(!isset($GLOBALS['APPDB'])) {
-    $GLOBALS['APPDB'] = Database::Connect();
+    $GLOBALS['APPDB'] = new Database();
+    $GLOBALS['APPDB']->connect();
 }
