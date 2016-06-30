@@ -10,5 +10,3 @@ pids
 
 #local serverconfig
 config/config.php
-adminer-taskd.php
-.gitignore
