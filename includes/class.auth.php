@@ -11,7 +11,7 @@
                     $sessionId = uniqid();
                     //Set Session Variable and Cookie
                     $_SESSION['user_logged_in'] = $sessionId;
-                    setcookie('trackleu',$sessionId,time()+24400,'/','/');
+                    setcookie('taskdu',$sessionId,time()+24400,'/','/');
                 }
             }else{
                 ThrowError('That email was invalid. Please try again.');
@@ -63,14 +63,14 @@
             $pull = $GLOBALS['APPDB']->Query("SELECT salt FROM user WHERE email='$email'");
             $salt = $GLOBALS['APPDB']->FetchOne($pull);
             if(!$salt){
-                ThrowError('That does not appear to be an email address currently in use.');
+                ThrowError('Oops! That email address was not found. Please try again.');
             }
-            $hashed = crypt($GLOBALS['APPDB']->Quote($password),$salt,)
-            $validateCall = $GLOBALS['APPDB']->Query("SELECT COUNT(*) FROM user WHERE email = '$email' AND password = '$hashed'")
+            $hashed = crypt($GLOBALS['APPDB']->Quote($password),$salt);
+            $validateCall = $GLOBALS['APPDB']->Query("SELECT COUNT(*) FROM user WHERE email = '$email' AND password = '$hashed'");
             if ($GLOBALS['APPDB']->FetchOne($validateCall) > 0) {
                 return true;
             }else{
-                ThrowError('Oops! That email/password combination was not found. Please try again.')
+                ThrowError('Oops! That email/password combination was not found. Please try again.');
             }
         }
     }

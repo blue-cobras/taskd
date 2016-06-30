@@ -1,36 +1,36 @@
 <?php
 
-function GetConfig($term)
+function GetConfig ($variable)
 {
-    if(isset($GLOBALS['APP_CFG'][$variable]) && $GLOBALS['APP_CFG'][$variable] != ''){
+    if (isset($GLOBALS['APP_CFG'][$variable]) && $GLOBALS['APP_CFG'][$variable] != '') {
             return $GLOBALS['APP_CFG'][$variable];
     }
     return false;
 }
 
-function CheckLoginStatus()
+function CheckLoginStatus ()
 {
-    if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == GetCookie('trackleu') ) { 
+    if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == GetCookie('taskdu')) { 
         return true;
     }
     return false;
 }
 
-function Parse($templateFile)
+function Parse ($templateFile)
 {
     return preg_replace("/\{{([^\{]{1,100}?)\}}/e","\$GLOBALS['$1']",file_get_contents(APP_TEMPLATE_PATH . $templateFile . '.html'));
 }
 
-function GetCookie($cookieName)
+function GetCookie ($cookieName)
 {
-    if(!isset($_COOKIE[$cookieName])) {
+    if (!isset($_COOKIE[$cookieName])) {
         return '';
-    }else{
+    } else {
         return $_COOKIE[$cookieName];
     }
 }
 
-function ThrowError($message)
+function ThrowError ($message)
 {
     die('failure|' . $message);    
 }
