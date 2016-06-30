@@ -1,0 +1,8 @@
+<?php
+$GLOBALS['APP_CFG']['IS_SETUP'] = "NO";
+$GLOBALS['APP_CFG']['DB_USER'] = "";
+$GLOBALS['APP_CFG']['DB_PASSWORD'] = "";
+$GLOBALS['APP_CFG']['DB_HOST'] = "localhost";
+$GLOBALS['APP_CFG']['DB_NAME'] = "";
+$GLOBALS['APP_CFG']['DB_PREFIX'] = "taskd_";
+$GLOBALS['APP_CFG']['APP_LOCATION'] = "";
