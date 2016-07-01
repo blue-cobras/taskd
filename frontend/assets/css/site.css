@@ -127,22 +127,3 @@ body {
   height: 100%;
   color: #eee;
   background-color: #576b80; }
-
-/* Chad's style */
-  #image_check
-  {
-      background: url("https://dl.dropboxusercontent.com/u/3367612/images/checkbox.png");
-margin-left: 20px;
-      padding-left:60px;
-      height="60px";
-      width="60px";
-      background-size:cover;
-  }
-
-  #image_check:hover
-  {
-      background: url("https://dl.dropboxusercontent.com/u/3367612/images/checkbox_green.png");
-      background-size:cover;
-      /*height="60px";
-      width="60px";*/
-  }

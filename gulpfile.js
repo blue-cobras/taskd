@@ -4,7 +4,20 @@ const nodemon = require('gulp-nodemon')
 const browserSync = require('browser-sync').create()
 const sass = require('gulp-sass')
 
-gulp.task('default', ['build', 'build-front-end', 'watch'])
+gulp.task('default', ['watch-full'])
+
+//////////////////////
+// Full Stack Tasks //
+//////////////////////
+
+/*
+*  This needs to be cleaned up
+*  Currently the front end remains unwatched
+*  because it seems like it doesn't play nice
+*  with the back end being on the same port
+*  haven't done enough testing to confirm
+*/
+gulp.task('watch-full', ['watch-back-end', 'build-front-end'])
 
 /////////////////////
 // Back End Tasks  //
@@ -20,7 +33,7 @@ gulp.task('build', () =>
 )
 
 // Watch Back-End
-gulp.task('watch', ['build', 'build-front-end'], () =>
+gulp.task('watch-back-end', ['build'], () =>
     nodemon({
         script: 'dist/app.js',
         gulpCmd: 'node_modules/.bin/gulp',
@@ -56,6 +69,7 @@ gulp.task('bfe-html', () =>
     gulp.src('frontend/**/*.html')
         .pipe(gulp.dest('dist/public'))
 )
+
 // Start BrowserSync
 gulp.task('browserSync', function () {
     browserSync.init({
@@ -64,6 +78,7 @@ gulp.task('browserSync', function () {
         }
     })
 })
+
 // Compile SASS
 gulp.task('sass', () => {
     gulp.src('frontend/assets/scss/**/*.scss')
@@ -71,6 +86,7 @@ gulp.task('sass', () => {
         .pipe(gulp.dest('frontend/assets/css/'))
         .pipe(browserSync.stream())
 })
+
 // Watch Front-End **NOTE: served from frontend/ not dist/
 gulp.task('watch-front-end', ['browserSync', 'sass'], () => {
     gulp.watch('frontend/assets/scss/**/*.scss', ['sass'])
