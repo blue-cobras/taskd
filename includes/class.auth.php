@@ -11,7 +11,8 @@
                     $sessionId = uniqid();
                     //Set Session Variable and Cookie
                     $_SESSION['user_logged_in'] = $sessionId;
-                    setcookie('chunkr',$sessionId,time()+24400,'/','/');
+                    $_SESSION['uid'] = GetUserIdFromEmail($email);
+                    setcookie('taskd',$sessionId,time()+24400,'/','/');
                 }
             }else{
                 ThrowError('That email was invalid. Please try again.');
@@ -50,8 +51,9 @@
         
         public function DoLogout()
         {
-            setcookie('chunkr','',time()-10000,'/','/');
+            setcookie('taskd','',time()-10000,'/','/');
             unset($_SESSION['user_logged_in']);
+            unset($_SESSION['uid']);
             
         }
         /**
@@ -66,8 +68,21 @@
         public function EmailResetLink()
         {
             //get the email from the post and validate
-            //generate the token and insert it in the database
-            //send a password reset email.
+            $email = strip_tags(strtolower($_POST['email']));
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                //generate the token and insert it in the database
+                $token = md5(uniqid());
+                //send a password reset email.
+                //create headers
+                $headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		// Additional headers
+		$headers .= "To: Taskd User <$email>" . "\r\n";
+		$headers .= "From: no-reply@taskd.podicom.com" . "\r\n" . "Reply-To: no-reply@taskd.podicom.com" . "\r\n";
+                $content = 'Someone just requested a password reset for your account on Taskd. If that was you, please click the link below.<br><br><a href="' . $GLOBALS['APP_CFG']['APP_LOCATION'] . '/forgot.php?token=' . $token . '">' . $GLOBALS['APP_CFG']['APP_LOCATION'] . '/forgot.php?token=' . $token . '</a><br><br>If you did not request a password reset, you may ignore this email. Your account has not been affected.';
+		//send mail
+                mail('','Someone requested a password reset of your Chunkr account',$content,$headers);
+            }
         }
         
         public function ResetPassword($token)
@@ -85,16 +100,26 @@
         }
         
         /*
-         * Gets everything from the DB for this user
+         * Gets everything from the DB for this user in an array
          *
          */
         private function GetUserFromEmail($email)
         {
+            $pull = $GLOBALS['APPDB']->Query("SELECT * FROM user WHERE email = '" . $GLOBALS['APPDB']->Quote($email) . "'");
+            return (int)$GLOBALS['APPDB']->Fetch($pull);
             
         }
         
+        /*
+         * Gets the User ID based on the email address
+         *
+         */
+        
         private function GetUserIdFromEmail($email)
-        {}
+        {
+            $pull = $GLOBALS['APPDB']->Query("SELECT userid FROM user WHERE email = '" . $GLOBALS['APPDB']->Quote($email) . "'");
+            return (int)$GLOBALS['APPDB']->FetchOne($pull);
+        }
         
         private function ValidateLogin($email,$password,$adminRequest=false)
         {
