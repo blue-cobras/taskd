@@ -25,7 +25,7 @@ if(function_exists('date_default_timezone_set')) {
 }
 @ob_start();
 
-define('APP_TEMPLATE_PATH', getConfig('APP_LOCATION') . '/templates/');
+define('APP_TEMPLATE_PATH', 'templates/');
 $GLOBALS['TemplatePath'] = APP_TEMPLATE_PATH;
 
 if(!isset($GLOBALS['APPDB'])) {

@@ -1,8 +1,8 @@
 <?php
 require_once('init.php');
-if (CheckLoginStatus()) {
+if(CheckLoginStatus()) {
    Parse('default'); 
 } else {
-    Parse('login');
+   Parse('login');
 }
 ?>
