@@ -12,7 +12,7 @@
                     //Set Session Variable and Cookie
                     $_SESSION['user_logged_in'] = $sessionId;
                     $_SESSION['uid'] = GetUserIdFromEmail($email);
-                    setcookie('taskd',$sessionId,time()+24400,'/','/');
+                    setcookie(strtolower($GLOBALS['APP_CFG']['APP_NAME']),$sessionId,time()+24400,'/','/');
                 }
             }else{
                 ThrowError('That email was invalid. Please try again.');
@@ -51,7 +51,7 @@
         
         public function DoLogout()
         {
-            setcookie('taskd','',time()-10000,'/','/');
+            setcookie(strtolower($GLOBALS['APP_CFG']['APP_NAME']),'',time()-10000,'/','/');
             unset($_SESSION['user_logged_in']);
             unset($_SESSION['uid']);
             
@@ -77,11 +77,11 @@
                 $headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		// Additional headers
-		$headers .= "To: Taskd User <$email>" . "\r\n";
-		$headers .= "From: no-reply@taskd.podicom.com" . "\r\n" . "Reply-To: no-reply@taskd.podicom.com" . "\r\n";
-                $content = 'Someone just requested a password reset for your account on Taskd. If that was you, please click the link below.<br><br><a href="' . $GLOBALS['APP_CFG']['APP_LOCATION'] . '/forgot.php?token=' . $token . '">' . $GLOBALS['APP_CFG']['APP_LOCATION'] . '/forgot.php?token=' . $token . '</a><br><br>If you did not request a password reset, you may ignore this email. Your account has not been affected.';
+		$headers .= "To: " . $GLOBALS['APP_CFG']['APP_NAME'] . " User <$email>" . "\r\n";
+		$headers .= "From: " . $GLOBALS['APP_CFG']['APP_EMAIL'] . "\r\n" . "Reply-To: " . $GLOBALS['APP_CFG']['APP_EMAIL'] . "\r\n";
+                $content = 'Someone just requested a password reset for your account on ' . $GLOBALS['APP_CFG']['APP_NAME'] . '. If that was you, please click the link below.<br><br><a href="' . $GLOBALS['APP_CFG']['APP_LOCATION'] . '/forgot.php?token=' . $token . '">' . $GLOBALS['APP_CFG']['APP_LOCATION'] . '/forgot.php?token=' . $token . '</a><br><br>If you did not request a password reset, you may ignore this email. Your account has not been affected.';
 		//send mail
-                mail('','Someone requested a password reset of your Chunkr account',$content,$headers);
+                mail('','Someone requested a password reset of your ' . $GLOBALS['APP_CFG']['APP_NAME'] . ' account',$content,$headers);
             }
         }
         

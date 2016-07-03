@@ -6,3 +6,5 @@ $GLOBALS['APP_CFG']['DB_HOST'] = "localhost";
 $GLOBALS['APP_CFG']['DB_NAME'] = "";
 $GLOBALS['APP_CFG']['DB_PREFIX'] = "taskd_";
 $GLOBALS['APP_CFG']['APP_LOCATION'] = "";
+$GLOBALS['APP_CFG']['APP_EMAIL'] = "";
+$GLOBALS['APP_CFG']['APP_NAME'] = 'Taskd';
