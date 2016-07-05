@@ -1,0 +1,5 @@
+.LoginRegisterContainer {width:500px;margin-left:auto;margin-right:auto;padding:15px;}
+.LoginRegisterContainer ul.tabs li {cursor:pointer; background-color:#333;color:white;display:inline-block;width:200px; padding:5px 10px;}
+.LoginRegisterContainer ul.tabs li.active {cursor:default;background-color:#fff;color:#333;}
+.hidden{display:none;}
+.active{display:inline-block;}

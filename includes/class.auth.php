@@ -4,6 +4,9 @@
     {
         public function DoLogin()
         {
+            if(CheckLoginStatus()){
+                ThrowError('You are already logged in.');
+            }
             $email = strip_tags(strtolower($_POST['email']));
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $password = $_POST['password'];
